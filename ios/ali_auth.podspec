@@ -15,10 +15,16 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-
-  s.vendored_frameworks = 'libs/ATAuthSDK.framework'
+  
   # 加载静态资源
   s.resources = ['Assets/*']
+
+  s.subspec 'vendor' do |sp|
+    sp.vendored_frameworks = 'libs/ATAuthSDK.framework'
+    sp.pod_target_xcconfig = {
+        'OTHER_LDFLAGS' => '$(inherited) -ObjC'
+    }
+  end
 
   s.ios.deployment_target = '8.0'
   # s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64' }
