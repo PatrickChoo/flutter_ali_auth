@@ -20,9 +20,11 @@
 ## 注意事项
 
 Patrick Choo：已经在podspec中解决此问题，无需再手动添加-ObjC
+
 ~~1、 针对移动闪退问题：
 在示范工程，pods -> TARGETS -> ali_auth -> Build Settings -> Linking -> Other Linker Flags 里面加上 -ObjC（因为AuthSDK是通过pod依赖进去的，所有对应的target里面要加这个配置，不然移动网络会crash）
 如下图所示： ~~
+
 <img src="https://raw.githubusercontent.com/CodeGather/flutter_ali_auth/master/screenshot/error_add.jpg" alt="cmcc_crash" width="100">
 
 2、该插件已添加ATAuthSDK.framework，在编译时请勿将ATAuthSDK.framework重复添加，以免出现未知错误
